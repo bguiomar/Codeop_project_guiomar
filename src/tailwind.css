@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer component {
+  .router-link-active {
+    @apply font-semibold text-blue-500;
+  }
+}
+body {
+  background-image: url(./images/bg-book-vintage.jpeg);
+}
