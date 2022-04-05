@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1 class="mt-5 mb-1 flex justify-start text-3xl text-yellow-700">
+    <h1
+      class="mt-5 mb-1 flex justify-center text-6xl font-bold text-yellow-700"
+    >
       GuioReads
     </h1>
 
@@ -10,6 +12,8 @@
 
 <script>
 export default {
-  name: "App",
+  components: {
+    name: "App",
+  },
 };
 </script>
