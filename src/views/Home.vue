@@ -1,42 +1,65 @@
 <template>
-  Im at HOMEPAGE
-
-  <div class="grid h-screen grid-cols-6">
-    <div class="relative col-span-4 flex">
-      <div class="flex p-24 font-serif font-semibold italic text-black">
-        <h1>A room without books is like<br />a body without a soul.</h1>
+  <div>
+    <div
+      class="relative h-96 w-full bg-gradient-to-tr from-gray-700 to-amber-700 bg-cover bg-center"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1980&q=80')]"
+        alt="bookshelf"
+        class="absolute h-full w-full object-cover mix-blend-overlay"
+      />
+      <div class="flex flex-col items-center px-2 py-3">
+        <h1 class="text-xl font-bold text-white sm:text-4xl md:text-6xl">
+          GUIOS-READS
+        </h1>
+        <h2 class="text-lg font-light italic text-white sm:text-xl md:text-3xl">
+          "A room without books is like a body without a soul"
+        </h2>
+        <div class="flex flex-col justify-center gap-3 py-2 text-center">
+          <div
+            class="border-b-2 border-dashed border-amber-200 pr-2 text-lg leading-loose tracking-wide text-white sm:text-3xl"
+          >
+            READ
+          </div>
+          <div
+            class="ttext-lg border-b-2 border-dashed border-amber-200 pr-2 leading-loose tracking-wide text-white sm:text-3xl"
+          >
+            READING
+          </div>
+          <div
+            class="text-lg leading-loose tracking-wide text-white sm:text-3xl"
+          >
+            WISH
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-span-2 flex flex-col items-center">
-      <div class="mb-3 flex justify-end gap-3">
-        <div class="border-r-2 border-amber-600 pr-2 text-2xl">READ</div>
-        <div class="border-r-2 border-amber-600 pr-2 text-2xl">READING</div>
-        <div class="text-2xl">WISH</div>
-      </div>
-      <h3 class="italic">Find your wish book</h3>
-      <div>
-        <input
-          type="text"
-          class="mt-2 rounded-md px-8 py-1"
-          placeholder="title or author"
-          ref="searchInput"
-          @keyup.enter="getBooks()"
-        />
-        <button
-          class="mt-3 rounded-md bg-amber-700 py-1 px-2"
-          @click="getBooks()"
-        >
-          Q
-        </button>
-        <div v-if="bookInfo">
-          <div v-for="book in bookInfo.items" :key="book.id">
-            <p>title: {{ book.volumeInfo.title }}</p>
-            <div v-for="author in book.volumeInfo.authors">
-              <p>autor: {{ author }}</p>
-            </div>
-            <p>description: {{ book.volumeInfo.description }}</p>
-            <br />
+  </div>
+  <div class="flex flex-col">
+    <h3 class="italic text-amber-600">Find your wish book:</h3>
+    <div class="">
+      <!-- ref pasarlo a <v-model> -->
+      <input
+        type="text"
+        class="mt-2 rounded-md border-2 border-amber-700 py-1 md:px-8"
+        placeholder="title or author"
+        ref="searchInput"
+        @keyup.enter="getBooks()"
+      />
+      <button
+        class="mt-3 rounded-md bg-amber-600 py-1 px-1 hover:bg-orange-400"
+        @click="getBooks()"
+      >
+        Q
+      </button>
+      <div v-if="bookInfo">
+        <div v-for="book in bookInfo.items" :key="book.id">
+          <p>title: {{ book.volumeInfo.title }}</p>
+          <div v-for="author in book.volumeInfo.authors" :key="authors">
+            <p>autor: {{ author }}</p>
           </div>
+          <p>description: {{ book.volumeInfo.description }}</p>
+          <br />
         </div>
       </div>
     </div>
