@@ -94,7 +94,7 @@ export default {
 
       try {
         const { data } = await axios(
-          `https://www.googleapis.com/books/v1/volumes?q=intitle:"${this.$refs.searchInput.value}"|inauthor:"${this.$refs.searchInput.value}"&maxResults=10`
+          `https://www.googleapis.com/books/v1/volumes?q=intitle:"${this.$refs.searchInput.value}"|inauthor:"${this.$refs.searchInput.value}"&maxResults=6`
         );
         this.bookInfo = data;
       } catch (error) {
@@ -104,8 +104,3 @@ export default {
   },
 };
 </script>
-
-//getTitle() { // const GoogleKeyAPi =
-"AIzaSyCoOb4mqorydBiXUcRQbP7ptDCX1fsQr-Y", // axios //
-{"https://www.googleapis.com/books/v1/volumes?q="+intitle+"&key="+GoogleKeyApi+"}
-// }; // }, /* `https://swapi.dev/api/films/${this.$route.params.id}` */
