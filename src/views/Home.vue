@@ -35,9 +35,9 @@
       </div>
     </div>
   </div>
-  <div class="flex flex-col">
+  <div class="flex flex-col pb-4">
     <h3 class="italic text-amber-600">Find your wish book:</h3>
-    <div class="">
+    <div>
       <!-- ref pasarlo a <v-model> -->
       <input
         type="text"
@@ -52,14 +52,21 @@
       >
         Q
       </button>
-      <div v-if="bookInfo">
+    </div>
+  </div>
+  <div class="grid grid-cols-3 bg-gray-500 px-8">
+    <div v-if="bookInfo">
+      <div class="bg-teal-100 px-4">
         <div v-for="book in bookInfo.items" :key="book.id">
-          <p>title: {{ book.volumeInfo.title }}</p>
-          <div v-for="author in book.volumeInfo.authors" :key="authors">
+          <p clas>title: {{ book.volumeInfo.title }}</p>
+          <div v-for="author in book.volumeInfo.authors" :key="author">
             <p>autor: {{ author }}</p>
           </div>
           <p>description: {{ book.volumeInfo.description }}</p>
           <br />
+          <div v-for="image in book.volumeInfo.imageLinks" :key="image">
+            <img :src="image" alt="books images" />
+          </div>
         </div>
       </div>
     </div>
@@ -93,7 +100,6 @@ export default {
       }
     },
   },
-  mounted() {},
 };
 </script>
 
