@@ -54,10 +54,10 @@
       </button>
     </div>
   </div>
-  <div class="grid grid-cols-3 bg-gray-500 px-8">
+  <div class="grid grid-cols-2 bg-gray-500 px-8">
     <div v-if="bookInfo">
-      <div class="bg-teal-100 px-4">
-        <div v-for="book in bookInfo.items" :key="book.id">
+      <div v-for="book in bookInfo.items" :key="book.id">
+        <div class="bg-teal-100 px-4">
           <p clas>title: {{ book.volumeInfo.title }}</p>
           <div v-for="author in book.volumeInfo.authors" :key="author">
             <p>autor: {{ author }}</p>
