@@ -47,10 +47,10 @@
           @keyup.enter="getBooks()"
         />
         <button
-          class="mt-3 rounded-md bg-orange-400 py-1 px-1 hover:bg-orange-400"
+          class="mt-3 rounded-md bg-orange-400 py-1 px-1 hover:bg-teal-400"
           @click="getBooks()"
         >
-          jjjj
+          <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
     </div>
@@ -82,9 +82,18 @@
             <div v-for="author in book.volumeInfo.authors" :key="author">
               <p class="text-md italic md:text-lg">{{ author }}</p>
             </div>
-            <br />
+            <div v-if="book.volumeInfo.description">
+              <p class="text-sm md:text-base">
+                {{ shortDescription(book.volumeInfo.description) }}
+              </p>
+            </div>
           </div>
         </div>
+      </div>
+      <div>
+        <button></button>
+        <button></button>
+        <button></button>
       </div>
     </div>
   </div>
@@ -117,6 +126,11 @@ export default {
       } catch (error) {
       } finally {
       }
+    },
+    shortDescription: (textito) => {
+      return typeof textito === "string"
+        ? textito.split("").slice(0, 150).join("") + "..."
+        : "sin descripción";
     },
   },
 };
