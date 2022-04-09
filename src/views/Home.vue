@@ -1,12 +1,12 @@
 <template>
   <div>
     <div
-      class="h-42 flex flex-col justify-center bg-cover text-justify"
+      class="h-42 flex flex-col justify-start bg-cover text-justify"
       style="
         background-image: url('https://images.unsplash.com/photo-1513185041617-8ab03f83d6c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
       "
     >
-      <h1 class="mx-auto text-8xl font-bold text-white">
+      <h1 class="text-8xl font-bold text-white">
         <RouterLink to="/"> GUIOS-READS </RouterLink>
       </h1>
 
