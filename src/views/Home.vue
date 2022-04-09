@@ -6,7 +6,7 @@
           <h1
             class="xs:text-2xl text-xl font-bold text-white sm:text-4xl md:text-6xl"
           >
-            GUIOS-READS
+            <RouterLink to="/"> GUIOS-READS </RouterLink>
           </h1>
           <h2
             class="text-sd font-light italic text-white sm:text-xl md:text-3xl"
@@ -17,17 +17,17 @@
             <div
               class="border-b-2 border-dashed border-amber-200 pr-2 text-lg leading-loose tracking-wide text-white sm:text-2xl"
             >
-              READ
+              <RouterLink to="/read/"> Read </RouterLink>
             </div>
             <div
               class="ttext-lg border-b-2 border-dashed border-amber-200 pr-2 leading-loose tracking-wide text-white sm:text-2xl"
             >
-              READING
+              <RouterLink to="/reading/"> Reading</RouterLink>
             </div>
             <div
               class="text-lg leading-loose tracking-wide text-white sm:text-2xl"
             >
-              WISH
+              <RouterLink to="/wanted/"> Want to read</RouterLink>
             </div>
           </div>
         </div>
@@ -35,22 +35,6 @@
       <!-- SEARCH INPUT-->
       <div class="container mx-auto flex flex-col items-center bg-blue-200 p-4">
         <h3 class="italic text-amber-600">Find your wish book:</h3>
-        <div class="flex gap-1">
-          <!-- ref pasarlo a <v-model> -->
-          <input
-            type="text"
-            class="mt-2 rounded-md border-2 border-amber-700 py-1"
-            placeholder=" title or author"
-            v-model="searchInput"
-            @keyup.enter="getBooks()"
-          />
-          <button
-            class="mt-3 rounded-md bg-orange-400 py-1 px-1 hover:bg-teal-400"
-            @click="getBooks()"
-          >
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </div>
       </div>
     </div>
 
