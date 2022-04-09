@@ -1,40 +1,46 @@
 <template>
-  <div class="">
-    <div class="container mx-auto bg-[url('/images/book1.jpeg')]">
-      <div class="mx-auto">
-        <div class="flex flex-col px-2 py-3 text-justify">
-          <h1
-            class="xs:text-2xl text-xl font-bold text-white sm:text-4xl md:text-6xl"
-          >
-            <RouterLink to="/"> GUIOS-READS </RouterLink>
-          </h1>
-          <h2
-            class="text-sd font-light italic text-white sm:text-xl md:text-3xl"
-          >
-            "A room without books is like a body without a soul"
-          </h2>
-          <div class="flex items-center justify-center gap-3 py-2">
-            <div
-              class="border-b-2 border-dashed border-amber-200 pr-2 text-lg leading-loose tracking-wide text-white sm:text-2xl"
-            >
-              <RouterLink to="/read/"> Read </RouterLink>
-            </div>
-            <div
-              class="ttext-lg border-b-2 border-dashed border-amber-200 pr-2 leading-loose tracking-wide text-white sm:text-2xl"
-            >
-              <RouterLink to="/reading/"> Reading</RouterLink>
-            </div>
-            <div
-              class="text-lg leading-loose tracking-wide text-white sm:text-2xl"
-            >
-              <RouterLink to="/wanted/"> Want to read</RouterLink>
-            </div>
+  <div>
+    <div
+      class="h-42 flex flex-col justify-center bg-cover text-justify"
+      style="
+        background-image: url('https://images.unsplash.com/photo-1513185041617-8ab03f83d6c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+      "
+    >
+      <h1 class="mx-auto text-8xl font-bold text-white">
+        <RouterLink to="/"> GUIOS-READS </RouterLink>
+      </h1>
+
+      <div class="mx-7 flex flex-wrap items-center justify-between py-3">
+        <!-- tipologia-->
+        <div
+          class="flex items-center justify-start gap-3 py-1 pr-2 text-xl leading-loose tracking-wide text-white sm:flex-wrap sm:text-3xl"
+        >
+          <div class="border-r-2 border-dashed border-amber-200 pr-5">
+            <RouterLink to="/read/"> Read </RouterLink>
+          </div>
+          <div class="border-r-2 border-dashed border-amber-200 pr-5">
+            <RouterLink to="/reading/"> Reading</RouterLink>
+          </div>
+          <div>
+            <RouterLink to="/wanted/"> Want to read</RouterLink>
           </div>
         </div>
-      </div>
-      <!-- SEARCH INPUT-->
-      <div class="container mx-auto flex flex-col items-center bg-blue-200 p-4">
-        <h3 class="italic text-amber-600">Find your wish book:</h3>
+        <!-- search_Bar -->
+        <div class="my-3 flex items-center gap-1 py-4">
+          <input
+            type="text"
+            class="rounded-md border-2 border-amber-700 py-0.5 px-5 md:px-10 lg:px-20"
+            placeholder=" title or author"
+            v-model="searchInput"
+            @keyup.enter="getBooks()"
+          />
+          <button
+            class="rounded-md bg-orange-400 py-1 px-1 hover:bg-teal-400"
+            @click="getBooks()"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -56,7 +62,7 @@
             />
             <img
               v-else
-              src="@/images/nocoverimage.jpeg"
+              src="/images/nocoverimage.jpeg"
               alt="books images"
               class="h-56"
             />
@@ -76,14 +82,19 @@
             </div>
           </div>
           <div class="flex gap-3 bg-blue-200 p-5">
-            <button class="rounded-full bg-blue-400 p-2 text-green-400">
+            <button
+              @click="addBook()"
+              class="rounded-full bg-blue-400 p-2 text-green-400"
+            >
               <i class="fa-solid fa-circle-check"></i>
             </button>
 
-            <button class="rounded-full bg-orange-300 px-2">
+            <button @click="addBook()" class="rounded-full bg-orange-300 px-2">
               <i class="fa-solid fa-book-open-reader"></i>
             </button>
-            <button><i class="fa-solid fa-bookmark"></i></button>
+            <button @click="addBook()">
+              <i class="fa-solid fa-bookmark"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -100,6 +111,7 @@ export default {
     return {
       bookInfo: null,
       searchInput: null,
+      bookAdded: [],
     };
   },
   components: {},
@@ -123,6 +135,9 @@ export default {
       return typeof textito === "string"
         ? textito.split("").slice(0, 150).join("") + "..."
         : "sin descripción";
+    },
+    addBook(book) {
+      this.bookAdded.push(book);
     },
   },
 };
