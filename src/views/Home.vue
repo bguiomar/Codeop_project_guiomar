@@ -1,12 +1,12 @@
 <template>
   <div>
     <div
-      class="h-42 flex flex-col justify-start bg-cover text-justify"
+      class="h-42 flex flex-col justify-start bg-cover px-5 py-3 text-justify"
       style="
         background-image: url('https://images.unsplash.com/photo-1513185041617-8ab03f83d6c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
       "
     >
-      <h1 class="text-8xl font-bold text-white">
+      <h1 class="cd text-8xl font-bold text-white">
         <RouterLink to="/"> GUIOS-READS </RouterLink>
       </h1>
 
@@ -83,16 +83,19 @@
           </div>
           <div class="flex gap-3 bg-blue-200 p-5">
             <button
-              @click="addBook()"
+              @click="addToRead(book.id, book.volumeInfo)"
               class="rounded-full bg-blue-400 p-2 text-green-400"
             >
               <i class="fa-solid fa-circle-check"></i>
             </button>
 
-            <button @click="addBook()" class="rounded-full bg-orange-300 px-2">
+            <button
+              @click="addToReading(book.id, book.volumeInfo)"
+              class="rounded-full bg-orange-300 px-2"
+            >
               <i class="fa-solid fa-book-open-reader"></i>
             </button>
-            <button @click="addBook()">
+            <button @click="addToWanted(book.id, book.volumeInfo)">
               <i class="fa-solid fa-bookmark"></i>
             </button>
           </div>
@@ -104,7 +107,7 @@
 
 <script>
 import axios from "axios";
-
+import { addBook } from "../firebase";
 export default {
   name: "Home",
   data() {
@@ -136,8 +139,46 @@ export default {
         ? textito.split("").slice(0, 150).join("") + "..."
         : "sin descripción";
     },
-    addBook(book) {
-      this.bookAdded.push(book);
+    createBook(id, book) {
+      let bookToAdd = {
+        id: id,
+        title: "",
+        authors: null,
+        description: "",
+        cover: "",
+      };
+
+      if ("title" in book) {
+        bookToAdd.title = book.title;
+      }
+
+      if ("authors" in book) {
+        bookToAdd.authors = book.authors;
+      }
+
+      if ("description" in book) {
+        bookToAdd.description = book.description;
+      }
+
+      if ("imageLinks" in book && "smallThumbnail" in book.imageLinks) {
+        bookToAdd.cover = book.imageLinks.smallThumbnail;
+      } else {
+        bookToAdd.cover = "/images/nocoverimage.jpeg";
+      }
+
+      return bookToAdd;
+    },
+    addToRead(id, bookAPIInfo) {
+      let book = this.createBook(id, bookAPIInfo);
+      addBook(id, "read", book);
+    },
+    addToReading(id, bookAPIInfo) {
+      let book = this.createBook(id, bookAPIInfo);
+      addBook(id, "reading", book);
+    },
+    addToWanted(id, bookAPIInfo) {
+      let book = this.createBook(id, bookAPIInfo);
+      addBook(id, "wanted", book);
     },
   },
 };
