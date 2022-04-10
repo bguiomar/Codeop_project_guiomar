@@ -139,6 +139,8 @@ export default {
         ? textito.split("").slice(0, 150).join("") + "..."
         : "sin descripción";
     },
+
+    //coge infor de la API y me crea un objeto para guardarlo en Firebase
     createBook(id, book) {
       let bookToAdd = {
         id: id,
@@ -168,14 +170,17 @@ export default {
 
       return bookToAdd;
     },
+
     addToRead(id, bookAPIInfo) {
       let book = this.createBook(id, bookAPIInfo);
       addBook(id, "read", book);
     },
+
     addToReading(id, bookAPIInfo) {
       let book = this.createBook(id, bookAPIInfo);
       addBook(id, "reading", book);
     },
+
     addToWanted(id, bookAPIInfo) {
       let book = this.createBook(id, bookAPIInfo);
       addBook(id, "wanted", book);

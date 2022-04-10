@@ -74,7 +74,10 @@
             </div>
           </div>
           <div class="flex gap-3 bg-blue-200 p-5">
-            <button class="rounded-full bg-orange-300 px-2">
+            <button
+              @click="moveToReading(book.id)"
+              class="rounded-full bg-orange-300 px-2"
+            >
               <i class="fa-solid fa-book-open-reader"></i>
             </button>
             <button @click="removeFromRead(book.id)">eliminar</button>
@@ -90,7 +93,7 @@
 
 <script>
 import axios from "axios";
-import { getBooks, removeBook } from "../firebase";
+import { addBook, getBooks, removeBook, getABook } from "../firebase";
 export default {
   name: "Home",
   data() {
@@ -131,6 +134,16 @@ export default {
       return typeof textito === "string"
         ? textito.split("").slice(0, 150).join("") + "..."
         : "sin descripción";
+    },
+    async moveToReading(id) {
+      try {
+        const book = await getABook(id, "read");
+        console.log(book);
+        addBook(id, "reading", book);
+        this.removeFromRead(id);
+      } catch (error) {
+        console.log("Error getting a book");
+      }
     },
   },
   mounted() {
