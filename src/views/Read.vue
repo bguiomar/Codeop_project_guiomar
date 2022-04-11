@@ -1,26 +1,28 @@
 <template>
   <div>
     <div
-      class="h-42 flex flex-col bg-cover text-justify"
+      class="h-42 flex flex-col justify-start bg-cover px-5 py-3 text-justify"
       style="
         background-image: url('https://images.unsplash.com/photo-1513185041617-8ab03f83d6c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
       "
     >
-      <h1 class="text-8xl font-bold text-white">
+      <h1 class="cd text-8xl font-bold text-white">
         <RouterLink to="/"> GUIOS-READS </RouterLink>
       </h1>
 
       <div class="mx-7 flex flex-wrap items-center justify-between py-3">
         <!-- tipologia-->
         <div
-          class="texl-xl flex items-center justify-start gap-3 py-1 pr-2 leading-loose tracking-wide text-white sm:flex-wrap sm:text-3xl"
+          class="flex items-center justify-start gap-3 rounded-md py-1 px-2 text-xl leading-loose tracking-wide text-white sm:flex-wrap sm:text-3xl"
         >
           <div
-            class="border-r-2 border-dashed border-amber-200 pr-5 text-green-600"
+            class="rounded-xl px-5 py-3 font-extrabold text-black backdrop-brightness-200 backdrop-invert"
           >
             <RouterLink to="/read/"> Read </RouterLink>
           </div>
-          <div class="border-r-2 border-dashed border-amber-200 pr-5">
+          <div
+            class="border-r-2 border-l-2 border-dashed border-amber-200 px-5 py-1"
+          >
             <RouterLink to="/reading/"> Reading</RouterLink>
           </div>
           <div>
@@ -80,7 +82,9 @@
             >
               <i class="fa-solid fa-book-open-reader"></i>
             </button>
-            <button @click="removeFromRead(book.id)">eliminar</button>
+            <button @click="removeFromRead(book.id)">
+              <i class="fa-solid fa-trash-arrow-up"></i>
+            </button>
           </div>
         </div>
       </div>

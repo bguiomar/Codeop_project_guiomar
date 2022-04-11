@@ -45,59 +45,70 @@
     </div>
 
     <!-- BOOK LIST -->
-    <div v-if="bookInfo">
-      <div
-        class="container mx-auto grid gap-6 bg-gray-500 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
-      >
-        <div class="" v-for="book in bookInfo.items" :key="book.id">
-          <div class="">
-            <img
-              v-if="
-                book.volumeInfo.imageLinks &&
-                book.volumeInfo.imageLinks.smallThumbnail
-              "
-              :src="book.volumeInfo.imageLinks.smallThumbnail"
-              alt="books images"
-              class="h-56"
-            />
-            <img
-              v-else
-              src="/images/nocoverimage.jpeg"
-              alt="books images"
-              class="h-56"
-            />
-          </div>
+    <div class="h-full bg-[url('/images/bg-book-vintage.jpeg')]">
+      HOLAAAA
+      <carousel>
+        <carousel-slide></carousel-slide>
+        <carousel-slide></carousel-slide>
+        <carousel-slide></carousel-slide>
+        <carousel-slide></carousel-slide>
+        <carousel-slide></carousel-slide>
+      </carousel>
 
-          <div class="bg-orange-100 text-justify">
-            <p class="text-md font-bold md:text-lg">
-              {{ book.volumeInfo.title }}
-            </p>
-            <div v-for="author in book.volumeInfo.authors" :key="author">
-              <p class="text-md italic md:text-lg">{{ author }}</p>
+      <div v-if="bookInfo">
+        <div
+          class="container mx-auto grid gap-6 bg-gray-500 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
+        >
+          <div class="" v-for="book in bookInfo.items" :key="book.id">
+            <div class="">
+              <img
+                v-if="
+                  book.volumeInfo.imageLinks &&
+                  book.volumeInfo.imageLinks.smallThumbnail
+                "
+                :src="book.volumeInfo.imageLinks.smallThumbnail"
+                alt="books images"
+                class="h-56"
+              />
+              <img
+                v-else
+                src="/images/nocoverimage.jpeg"
+                alt="books images"
+                class="h-56"
+              />
             </div>
-            <div v-if="book.volumeInfo.description">
-              <p class="text-sm md:text-base">
-                {{ shortDescription(book.volumeInfo.description) }}
+
+            <div class="bg-orange-100 text-justify">
+              <p class="text-md font-bold md:text-lg">
+                {{ book.volumeInfo.title }}
               </p>
+              <div v-for="author in book.volumeInfo.authors" :key="author">
+                <p class="text-md italic md:text-lg">{{ author }}</p>
+              </div>
+              <div v-if="book.volumeInfo.description">
+                <p class="text-sm md:text-base">
+                  {{ shortDescription(book.volumeInfo.description) }}
+                </p>
+              </div>
             </div>
-          </div>
-          <div class="flex gap-3 bg-blue-200 p-5">
-            <button
-              @click="addToRead(book.id, book.volumeInfo)"
-              class="rounded-full bg-blue-400 p-2 text-green-400"
-            >
-              <i class="fa-solid fa-circle-check"></i>
-            </button>
+            <div class="flex gap-3 bg-blue-200 p-5">
+              <button
+                @click="addToRead(book.id, book.volumeInfo)"
+                class="rounded-full bg-blue-400 p-2 text-green-400"
+              >
+                <i class="fa-solid fa-circle-check"></i>
+              </button>
 
-            <button
-              @click="addToReading(book.id, book.volumeInfo)"
-              class="rounded-full bg-orange-300 px-2"
-            >
-              <i class="fa-solid fa-book-open-reader"></i>
-            </button>
-            <button @click="addToWanted(book.id, book.volumeInfo)">
-              <i class="fa-solid fa-bookmark"></i>
-            </button>
+              <button
+                @click="addToReading(book.id, book.volumeInfo)"
+                class="rounded-full bg-orange-300 px-2"
+              >
+                <i class="fa-solid fa-book-open-reader"></i>
+              </button>
+              <button @click="addToWanted(book.id, book.volumeInfo)">
+                <i class="fa-solid fa-bookmark"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -108,6 +119,7 @@
 <script>
 import axios from "axios";
 import { addBook } from "../firebase";
+import Carousel from "@/components/Carousel.vue";
 export default {
   name: "Home",
   data() {
@@ -117,7 +129,7 @@ export default {
       bookAdded: [],
     };
   },
-  components: {},
+  components: { Carousel },
   methods: {
     async getBooks() {
       if (this.searchInput === "") {
