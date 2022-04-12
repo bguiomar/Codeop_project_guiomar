@@ -10,10 +10,10 @@
         <RouterLink to="/"> GUIOS-READS </RouterLink>
       </h1>
 
-      <div class="mx-7 flex flex-wrap items-center justify-between py-3">
+      <div class="flex flex-wrap items-center justify-between py-3 md:mx-7">
         <!-- tipologia-->
         <div
-          class="flex items-center justify-start gap-3 rounded-md py-1 px-2 font-Quicksand text-xl leading-loose tracking-wide text-white sm:flex-wrap sm:text-3xl"
+          class="flex items-center gap-3 rounded-md py-1 px-2 font-Quicksand text-xl leading-loose tracking-wide text-white sm:flex-wrap sm:text-3xl"
         >
           <div class="border-r-2 border-dashed border-amber-200 px-5 py-1">
             <RouterLink to="/read/"> Read </RouterLink>
@@ -22,7 +22,7 @@
             <RouterLink to="/reading/"> Reading</RouterLink>
           </div>
           <div
-            class="rounded-xl border-l-2 border-dashed border-amber-200 px-5 py-3 font-extrabold text-black backdrop-brightness-200 backdrop-invert"
+            class="rounded-xl px-5 py-3 text-center font-extrabold text-white backdrop-brightness-200 backdrop-invert sm:text-white md:text-black lg:text-black"
           >
             <RouterLink to="/wanted/"> Want to read</RouterLink>
           </div>

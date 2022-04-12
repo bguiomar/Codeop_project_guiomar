@@ -16,7 +16,7 @@
           class="flex items-center justify-start gap-3 rounded-md py-1 px-2 font-Quicksand text-xl leading-loose tracking-wide text-white sm:flex-wrap sm:text-3xl"
         >
           <div
-            class="rounded-xl px-5 py-3 font-extrabold text-black backdrop-brightness-200 backdrop-invert"
+            class="rounded-xl px-5 py-3 font-extrabold text-white backdrop-brightness-200 backdrop-invert sm:text-black md:text-black"
           >
             <RouterLink to="/read/"> Read </RouterLink>
           </div>
@@ -30,7 +30,7 @@
           </div>
         </div>
         <!-- search_Bar -->
-        <div class="my-3 flex items-center gap-1 py-4">
+        <!-- <div class="my-3 flex items-center gap-1 py-4">
           <input
             type="text"
             class="rounded-md border-2 border-amber-700 py-0.5 px-5 md:px-10 lg:px-20"
@@ -44,9 +44,10 @@
           >
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
+
     <!-- BOOK LIST -->
     <div class="h-full bg-[url('/images/bg-book-vintage.jpeg')] bg-cover">
       <div v-if="bookInfo">

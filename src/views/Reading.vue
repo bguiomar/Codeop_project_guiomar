@@ -19,7 +19,7 @@
             <RouterLink to="/read/"> Read </RouterLink>
           </div>
           <div
-            class="rounded-xl px-5 py-3 font-extrabold text-black backdrop-brightness-200 backdrop-invert"
+            class="rounded-xl px-5 py-3 font-extrabold text-white backdrop-brightness-200 backdrop-invert sm:text-white md:text-black lg:text-black"
           >
             <RouterLink to="/reading/"> Reading</RouterLink>
           </div>
