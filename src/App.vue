@@ -1,16 +1,17 @@
 <template>
-  <div
-    class="flex h-screen flex-col justify-between bg-[url('/images/bg-book-vintage.jpeg')]"
-  >
-    <RouterView />
-    <footer class="flex bg-orange-300 py-12">footer</footer>
+  <div>
+    <div>
+      <RouterView />
+    </div>
   </div>
 </template>
 
 <script>
+import footerBar from "./components/footerBar.vue";
 export default {
   components: {
     name: "App",
+    footerBar,
   },
 };
 </script>

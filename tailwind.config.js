@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Amatic: "'Amatic SC', cursive",
+       Updock: "'Updock', cursive",
         Quicksand: "'Quicksand', sans-serif",
       },
     },
