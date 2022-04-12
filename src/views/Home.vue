@@ -45,7 +45,7 @@
     </div>
 
     <!-- BOOK LIST -->
-    <div class="h-full bg-[url('/images/bg-book-vintage.jpeg')] bg-cover">
+    <div class="bg-[url('/images/bg-book-vintage.jpeg')] bg-cover">
       <div v-if="bookInfo">
         <div
           class="container mx-auto grid h-full gap-6 p-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
@@ -92,7 +92,7 @@
                   alt="save"
                 >
                   <i
-                    class="fa-solid fa-circle-check fa-xl transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                    class="fa-solid fa-circle-check fa-xl transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
                   ></i>
                 </button>
 
@@ -101,13 +101,13 @@
                   class="px-2"
                 >
                   <i
-                    class="fa-solid fa-book-open-reader fa-xl transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                    class="fa-solid fa-book-open-reader fa-xl transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
                     style="color: #6e493a"
                   ></i>
                 </button>
                 <button @click="addToWanted(book.id, book.volumeInfo)">
                   <i
-                    class="fa-solid fa-bookmark fa-xl transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                    class="fa-solid fa-bookmark fa-xl transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
                     style="color: #dc793a"
                   ></i>
                 </button>
@@ -116,47 +116,41 @@
           </div>
         </div>
       </div>
-
-      <div v-else class="h-screen"></div>
-      <footer>contacto: vdm,fklgjerogjvep`dfo</footer>
-    </div>
-    <!-- CARRUSEL -->
-
-    <!-- <div
-      id="carouselExampleCrossfade"
-      class="carousel slide carousel-fade relative"
-      data-bs-ride="carousel"
-    >
-      <div class="carousel-inner relative w-full overflow-hidden">
-        <div class="carousel-item activefloat-left w-full">
-          <img
-            src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp"
-            class="block w-full"
-            alt="Wild Landscape"
-          />
-        </div>
-        <div class="carousel-item float-left w-full">
-          <img
-            src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp"
-            class="block w-full"
-            alt="Camera"
-          />
-        </div>
-        <div class="carousel-item float-left w-full">
-          <img
-            src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp"
-            class="block w-full"
-            alt="Exotic Fruits"
-          />
-        </div>
+      <!-- CARRUSEL -->
+      <div v-else class="">
+        <!-- <div class="flex h-96 px-40 pt-20">
+          <div class="flex h-96 overflow-scroll">
+            <div
+              class="flex w-96 flex-shrink-0 snap-start items-center justify-center bg-amber-200 text-8xl"
+            >
+              1
+            </div>
+            <div
+              class="flex w-96 flex-shrink-0 snap-start items-center justify-center bg-teal-200 text-8xl"
+            >
+              2
+            </div>
+            <div
+              class="flex w-96 flex-shrink-0 snap-start items-center justify-center bg-red-200 text-8xl"
+            >
+              3
+            </div>
+            <div
+              class="flex w-96 flex-shrink-0 snap-start items-center justify-center bg-blue-200 text-8xl"
+            >
+              4
+            </div>
+          </div>
+        </div> -->
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import { addBook, getBooks } from "../firebase";
+
 export default {
   name: "Home",
   data() {
