@@ -1,34 +1,34 @@
 <template>
   <div>
     <div
-      class="h-42 flex flex-col justify-start bg-cover px-5 py-3 text-justify"
+      class="h-42 flex flex-col justify-start bg-cover px-5 py-5 text-justify"
       style="
         background-image: url('https://images.unsplash.com/photo-1513185041617-8ab03f83d6c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
       "
     >
-      <h1 class="cd text-8xl font-bold text-white">
+      <h1 class="font-Quicksand text-8xl font-black text-white">
         <RouterLink to="/"> GUIOS-READS </RouterLink>
       </h1>
 
       <div class="mx-7 flex flex-wrap items-center justify-between py-3">
         <!-- tipologia-->
         <div
-          class="flex items-center justify-start gap-3 py-1 pr-2 text-xl leading-loose tracking-wide text-white sm:flex-wrap sm:text-3xl"
+          class="flex items-center justify-start gap-3 rounded-md py-1 px-2 font-Quicksand text-xl leading-loose tracking-wide text-white sm:flex-wrap sm:text-3xl"
         >
-          <div class="border-r-2 border-dashed border-amber-200 pr-5">
+          <div class="border-r-2 border-dashed border-amber-200 px-5 py-1">
             <RouterLink to="/read/"> Read </RouterLink>
           </div>
-          <div class="border-r-2 border-dashed border-amber-200 pr-5">
+          <div class="border-r-2 border-dashed border-amber-200 px-5 py-1">
             <RouterLink to="/reading/"> Reading</RouterLink>
           </div>
           <div
-            class="rounded-xl px-5 py-3 font-extrabold text-black backdrop-brightness-200 backdrop-invert"
+            class="rounded-xl border-l-2 border-dashed border-amber-200 px-5 py-3 font-extrabold text-black backdrop-brightness-200 backdrop-invert"
           >
             <RouterLink to="/wanted/"> Want to read</RouterLink>
           </div>
         </div>
         <!-- search_Bar -->
-        <div class="my-3 flex items-center gap-1 py-4">
+        <!-- <div class="my-3 flex items-center gap-1 py-4">
           <input
             type="text"
             class="rounded-md border-2 border-amber-700 py-0.5 px-5 md:px-10 lg:px-20"
@@ -42,63 +42,68 @@
           >
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
 
     <!-- BOOK LIST -->
-    <div v-if="bookInfo">
-      <div
-        class="container mx-auto grid gap-6 bg-gray-500 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
-      >
-        <div class="" v-for="book in bookInfo" :key="book">
-          <div class="">
-            <img
-              v-if="book.cover"
-              :src="book.cover"
-              alt="books images"
-              class="h-56"
-            />
-          </div>
-
-          <div class="bg-orange-100 text-justify">
-            <p class="text-md font-bold md:text-lg">
-              {{ book.title }}
-            </p>
-            <div v-for="author in book.authors" :key="author">
-              <p class="text-md italic md:text-lg">{{ author }}</p>
-            </div>
-            <div v-if="book.description">
-              <p class="text-sm md:text-base">
-                {{ shortDescription(book.description) }}
-              </p>
-            </div>
-          </div>
-          <div class="flex gap-3 bg-blue-200 p-5">
-            <button
-              @click="moveToRead(book.id, book.volumeInfo)"
-              class="rounded-full bg-blue-400 p-2 text-green-400"
+    <div class="h-full bg-[url('/images/bg-book-vintage.jpeg')] bg-cover">
+      <div v-if="bookInfo">
+        <div
+          class="container mx-auto grid h-full gap-6 p-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        >
+          <div v-for="book in bookInfo" :key="book">
+            <div
+              class="flex flex-col items-center rounded-2xl border-2 border-[#bf9b6f] bg-[#d6bea1]"
             >
-              <i class="fa-solid fa-circle-check"></i>
-            </button>
+              <div class="my-5">
+                <img
+                  v-if="book.cover"
+                  :src="book.cover"
+                  alt="books images"
+                  class="h-56"
+                />
+              </div>
 
-            <button
-              @click="moveToReading(book.id, book.volumeInfo)"
-              class="rounded-full bg-orange-300 px-2"
-            >
-              <i class="fa-solid fa-book-open-reader"></i>
-            </button>
-            <button @click="removeFromWanted(book.id, book.volumeInfo)">
-              <i class="fa-solid fa-trash-arrow-up"></i>
-            </button>
+              <div class="mx-5 py-2 text-justify">
+                <p class="text-md font-bold md:text-lg">
+                  {{ book.title }}
+                </p>
+                <div v-for="author in book.authors" :key="author">
+                  <p class="text-md italic md:text-lg">{{ author }}</p>
+                </div>
+                <div v-if="book.description">
+                  <p class="text-sm md:text-base">
+                    {{ shortDescription(book.description) }}
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-3 p-5">
+                <button
+                  @click="moveToRead(book.id, book.volumeInfo)"
+                  class="rounded-full px-2 text-green-400"
+                >
+                  <i class="fa-solid fa-circle-check fa-xl"></i>
+                </button>
+                <button
+                  @click="moveToReading(book.id, book.volumeInfo)"
+                  class="rounded-full px-2"
+                >
+                  <i
+                    class="fa-solid fa-book-open-reader fa-xl"
+                    style="color: #6e493a"
+                  ></i>
+                </button>
+                <button @click="removeFromWanted(book.id, book.volumeInfo)">
+                  <i class="fa-solid fa-trash-arrow-up fa-xl"></i>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div
-    class="mx-10 grid gap-6 bg-blue-300 bg-gray-500 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
-  ></div>
 </template>
 
 <script>

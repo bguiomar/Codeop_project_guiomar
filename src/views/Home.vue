@@ -6,14 +6,14 @@
         background-image: url('https://images.unsplash.com/photo-1513185041617-8ab03f83d6c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
       "
     >
-      <h1 class="text-8xl font-bold text-white">
+      <h1 class="font-Quicksand text-8xl font-black text-white">
         <RouterLink to="/"> GUIOS-READS </RouterLink>
       </h1>
 
       <div class="mx-7 flex flex-wrap items-center justify-between py-3">
         <!-- tipologia-->
         <div
-          class="flex items-center justify-start gap-3 py-1 pr-2 text-xl leading-loose tracking-wide text-white sm:flex-wrap sm:text-3xl"
+          class="flex items-center justify-start gap-3 rounded-md py-1 px-2 font-Quicksand text-xl leading-loose tracking-wide text-white sm:flex-wrap sm:text-3xl"
         >
           <div class="border-r-2 border-dashed border-amber-200 pr-5">
             <RouterLink to="/read/"> Read </RouterLink>
@@ -72,7 +72,7 @@
                 />
               </div>
 
-              <div class="mx-5 py-2 text-justify">
+              <div class="mx-5 py-2 text-justify text-[#4f2c1d]">
                 <p class="text-md font-bold md:text-lg">
                   {{ book.volumeInfo.title }}
                 </p>
@@ -88,7 +88,7 @@
               <div class="flex gap-3 p-5">
                 <button
                   @click="addToRead(book.id, book.volumeInfo)"
-                  class="rounded-full p-2 text-green-600"
+                  class="rounded-full text-green-600"
                   alt="save"
                 >
                   <i class="fa-solid fa-circle-check fa-xl"></i>
@@ -98,10 +98,16 @@
                   @click="addToReading(book.id, book.volumeInfo)"
                   class="px-2"
                 >
-                  <i class="fa-solid fa-book-open-reader fa-xl"></i>
+                  <i
+                    class="fa-solid fa-book-open-reader fa-xl"
+                    style="color: #6e493a"
+                  ></i>
                 </button>
                 <button @click="addToWanted(book.id, book.volumeInfo)">
-                  <i class="fa-solid fa-bookmark fa-xl"></i>
+                  <i
+                    class="fa-solid fa-bookmark fa-xl"
+                    style="color: #dc793a"
+                  ></i>
                 </button>
               </div>
             </div>
@@ -110,10 +116,11 @@
       </div>
 
       <div v-else class="h-screen"></div>
+      <footer>contacto: vdm,fklgjerogjvep`dfo</footer>
     </div>
     <!-- CARRUSEL -->
 
-    <div
+    <!-- <div
       id="carouselExampleCrossfade"
       class="carousel slide carousel-fade relative"
       data-bs-ride="carousel"
@@ -141,7 +148,7 @@
           />
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

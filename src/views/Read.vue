@@ -6,14 +6,14 @@
         background-image: url('https://images.unsplash.com/photo-1513185041617-8ab03f83d6c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
       "
     >
-      <h1 class="text-8xl font-bold text-white">
+      <h1 class="font-Quicksand text-8xl font-black text-white">
         <RouterLink to="/"> GUIOS-READS </RouterLink>
       </h1>
 
       <div class="mx-7 flex flex-wrap items-center justify-between py-3">
         <!-- tipologia-->
         <div
-          class="flex items-center justify-start gap-3 rounded-md py-1 px-2 text-xl leading-loose tracking-wide text-white sm:flex-wrap sm:text-3xl"
+          class="flex items-center justify-start gap-3 rounded-md py-1 px-2 font-Quicksand text-xl leading-loose tracking-wide text-white sm:flex-wrap sm:text-3xl"
         >
           <div
             class="rounded-xl px-5 py-3 font-extrabold text-black backdrop-brightness-200 backdrop-invert"
@@ -53,7 +53,7 @@
         <div
           class="container mx-auto grid h-full gap-6 p-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
         >
-          <div class="" v-for="book in bookInfo" :key="book">
+          <div v-for="book in bookInfo" :key="book">
             <div
               class="flex flex-col items-center rounded-2xl border-2 border-[#bf9b6f] bg-[#d6bea1]"
             >
@@ -86,7 +86,7 @@
                 >
                   <i
                     class="fa-solid fa-book-open-reader fa-xl"
-                    style="color: brown"
+                    style="color: #6e493a"
                   ></i>
                 </button>
                 <button @click="removeFromRead(book.id)">
@@ -99,9 +99,6 @@
       </div>
     </div>
   </div>
-  <div
-    class="mx-10 grid gap-6 bg-blue-300 bg-gray-500 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
-  ></div>
 </template>
 
 <script>
