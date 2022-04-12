@@ -88,10 +88,12 @@
               <div class="flex gap-3 p-5">
                 <button
                   @click="addToRead(book.id, book.volumeInfo)"
-                  class="rounded-full text-green-600"
+                  class="rounded-full text-green-700"
                   alt="save"
                 >
-                  <i class="fa-solid fa-circle-check fa-xl"></i>
+                  <i
+                    class="fa-solid fa-circle-check fa-xl transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                  ></i>
                 </button>
 
                 <button
@@ -99,13 +101,13 @@
                   class="px-2"
                 >
                   <i
-                    class="fa-solid fa-book-open-reader fa-xl"
+                    class="fa-solid fa-book-open-reader fa-xl transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
                     style="color: #6e493a"
                   ></i>
                 </button>
                 <button @click="addToWanted(book.id, book.volumeInfo)">
                   <i
-                    class="fa-solid fa-bookmark fa-xl"
+                    class="fa-solid fa-bookmark fa-xl transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
                     style="color: #dc793a"
                   ></i>
                 </button>

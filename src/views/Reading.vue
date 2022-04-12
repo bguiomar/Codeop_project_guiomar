@@ -81,12 +81,16 @@
               <div class="flex gap-3 p-5">
                 <button
                   @click="moveToRead(book.id, book.volumeInfo)"
-                  class="rounded-full px-2 text-green-600"
+                  class="rounded-full text-green-700"
                 >
-                  <i class="fa-solid fa-circle-check fa-xl"></i>
+                  <i
+                    class="fa-solid fa-circle-check fa-xl transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                  ></i>
                 </button>
                 <button @click="removeFromReading(book.id)">
-                  <i class="fa-solid fa-trash-arrow-up fa-xl"></i>
+                  <i
+                    class="fa-solid fa-trash-arrow-up fa-xl transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                  ></i>
                 </button>
               </div>
             </div>

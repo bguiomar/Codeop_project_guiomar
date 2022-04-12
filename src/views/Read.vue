@@ -86,12 +86,14 @@
                   class="rounded-full px-2"
                 >
                   <i
-                    class="fa-solid fa-book-open-reader fa-xl"
+                    class="fa-solid fa-book-open-reader fa-xl transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
                     style="color: #6e493a"
                   ></i>
                 </button>
                 <button @click="removeFromRead(book.id)">
-                  <i class="fa-solid fa-trash-arrow-up fa-xl"></i>
+                  <i
+                    class="fa-solid fa-trash-arrow-up fa-xl transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                  ></i>
                 </button>
               </div>
             </div>
