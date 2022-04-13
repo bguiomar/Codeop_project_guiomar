@@ -34,7 +34,7 @@
     <div class="bg-[url('/images/bg-book-vintage.jpeg')] bg-cover">
       <div v-if="bookInfo">
         <div
-          class="container mx-auto grid h-full gap-6 p-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+          class="container mx-auto grid h-full gap-6 p-10 py-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
         >
           <div v-for="book in bookInfo" :key="book">
             <div

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="bg-[url('/images/bg-book-vintage.jpeg')] bg-cover">
+    <div class="h-full bg-[url('/images/bg-book-vintage.jpeg')] bg-cover">
       <div
         class="h-42 flex flex-col justify-start bg-cover px-5 py-5 text-justify"
         style="
@@ -123,7 +123,7 @@
         <!-- Profile -->
         <div
           v-else
-          class="flex w-full justify-center py-3 md:container md:mx-auto"
+          class="flex w-full justify-center px-10 py-32 md:container md:mx-auto"
         >
           <div
             class="flex-cols-2 flex items-center justify-center px-48 text-justify"

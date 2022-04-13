@@ -11,7 +11,6 @@ import footerBar from "./components/footerBar.vue";
 export default {
   components: {
     name: "App",
-    footerBar,
   },
 };
 </script>
