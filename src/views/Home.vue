@@ -11,16 +11,11 @@
           <RouterLink to="/"> GUIOS-READS </RouterLink>
         </h1>
 
-        <div class="mx-7 flex flex-wrap items-center justify-between py-3">
+        <div class="mx-4 flex flex-wrap items-center justify-between py-3">
           <!-- tipologia-->
           <div
             class="flex items-center justify-start gap-3 rounded-md py-1 px-2 font-Quicksand text-xl leading-loose tracking-wide text-white sm:flex-wrap sm:text-3xl"
           >
-            <div class="border-r-2 border-dashed border-amber-200 pr-5">
-              <RouterLink to="/"
-                ><i class="fa-solid fa-house-chimney fa-xl"></i>
-              </RouterLink>
-            </div>
             <div class="border-r-2 border-dashed border-amber-200 pr-5">
               <RouterLink to="/read/"> Read </RouterLink>
             </div>
@@ -126,9 +121,12 @@
           </div>
         </div>
         <!-- Profile -->
-        <div v-else class="flex justify-between">
+        <div
+          v-else
+          class="flex w-full justify-center py-3 md:container md:mx-auto"
+        >
           <div
-            class="flex-cols-2 flex items-center justify-center gap-6 p-10 text-justify"
+            class="flex-cols-2 flex items-center justify-center px-48 text-justify"
           >
             <div
               class="flex flex-col items-center rounded-2xl border-2 border-[#bf9b6f] bg-[#d6bea1] px-3 py-3"

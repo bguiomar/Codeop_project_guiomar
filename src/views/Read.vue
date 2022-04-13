@@ -10,7 +10,7 @@
         <RouterLink to="/"> GUIOS-READS </RouterLink>
       </h1>
 
-      <div class="mx-7 flex flex-wrap items-center justify-between py-3">
+      <div class="mx-4 flex flex-wrap items-center justify-between py-3">
         <!-- tipologia-->
         <div
           class="flex items-center justify-start gap-3 rounded-md py-1 px-2 font-Quicksand text-xl leading-loose tracking-wide text-white sm:flex-wrap sm:text-3xl"
