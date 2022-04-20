@@ -100,7 +100,7 @@
       </div>
       <a
         href="https://linkedin.com/in/blanca-guiomar-castro-gonzález-05b69971"
-        class="hover:underline"
+        class="text-white hover:underline"
         ><i class="fa-brands fa-linkedin fa-2xl"></i
       ></a>
     </div>
